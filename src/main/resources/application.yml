@@ -1,0 +1,32 @@
+spring:
+  datasource:
+    sarah-write:
+      driverClassName: com.mysql.cj.jdbc.Driver
+      jdbc-url: "jdbc:mysql://localhost:3306/sarahdb?autoReconnect=true&useSSL=false&initialTimeout=3&maxReconnects=5&useUnicode=true&serverTimezone=Asia/Seoul"
+      username: root
+      password: root
+  jpa:
+    show-sql: true
+    hibernate:
+      dll-auto: validate
+    properties:
+      hibernate:
+        dialect: "org.hibernate.dialect.MySQL5InnoDBDialect"
+        current_session_context_class: "org.springframework.orm.hibernate5.SpringSessionContext"
+        format_sql: true
+
+logging:
+  file:
+    max-size: 100MB
+    max-history: 100
+    path: ./log
+  level:
+    root: INFO
+    org:
+      hibernate:
+        type:
+          descriptor:
+            sql: trace
+    com:
+      enusujeo:
+        batch: DEBUG
